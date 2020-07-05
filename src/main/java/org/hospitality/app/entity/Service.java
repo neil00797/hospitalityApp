@@ -36,7 +36,7 @@ public class Service {
     public static class Builder{
 
         public String serviceType;
-        String serviceId,positionStatus;
+       public String serviceId,positionStatus;
 
         public Builder setserviceId (String serviceId){
 
