@@ -3,6 +3,8 @@ package org.hospitality.app.factory;
 import org.hospitality.app.entity.StayInformation;
 import org.hospitality.app.util.Helper;
 
+//Thaakir Ajouhaar 217244394
+
 public class StayInformationFactory
 {
     public static StayInformation createStayInformation(String stayDuration)
