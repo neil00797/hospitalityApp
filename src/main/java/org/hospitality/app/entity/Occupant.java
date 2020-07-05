@@ -6,12 +6,18 @@ package org.hospitality.app.entity;
  */
 
 public class Occupant {
-    private String occupantId, firstName, lastName;
+    private String occupantId;
+    private String firstName;
+    private String lastName;
+    private String allergyId;
+    private String medicationId;
 
     private Occupant(Builder builder){
         this.occupantId = builder.occupantId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
+        this.allergyId = builder.allergyId;
+        this.medicationId = builder.medicationId;
     }
 
     public String getOccupantId() {
@@ -26,17 +32,27 @@ public class Occupant {
         return lastName;
     }
 
+    public String getAllergyId() {
+        return allergyId;
+    }
+
+    public String getMedicationId() {
+        return medicationId;
+    }
+
     @Override
     public String toString() {
         return "Occupant{" +
                 "occupantId='" + occupantId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", allergyId='" + allergyId + '\'' +
+                ", medicationId='" + medicationId + '\'' +
                 '}';
     }
 
     public static class Builder{
-        private String occupantId, firstName, lastName;
+        private String occupantId, firstName, lastName, allergyId, medicationId;
 
         public Builder setOccupantId(String occupantId){
             this.occupantId = occupantId;
@@ -53,10 +69,22 @@ public class Occupant {
             return this;
         }
 
+        public Builder setAllergyId(String allergyId){
+            this.allergyId = allergyId;
+            return this;
+        }
+
+        public Builder setMedicationId(String medicationId){
+            this.medicationId = medicationId;
+            return this;
+        }
+
         public Builder copy(Occupant occupant){
             this.occupantId = occupant.occupantId;
             this.firstName = occupant.firstName;
             this.lastName = occupant.lastName;
+            this.allergyId = occupant.allergyId;
+            this.medicationId = occupant.medicationId;
             return this;
         }
 
