@@ -11,12 +11,17 @@ public class OccupantFactory {
     public static Occupant createOccupant(String firstName, String lastName)
     {
         String occupantId = Helper.generateId();
+        String allergyId = Helper.generateId();
+        String medicationId = Helper.generateId();
 
         Occupant occupant = new Occupant.Builder()
                 .setOccupantId(occupantId)
                 .setFirstName(firstName)
                 .setLastName(lastName)
+                .setAllergyId(allergyId)
+                .setMedicationId(medicationId)
                 .build();
+
 
         return occupant;
     }
