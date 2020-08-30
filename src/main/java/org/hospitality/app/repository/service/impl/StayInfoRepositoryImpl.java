@@ -12,6 +12,7 @@ import java.util.Set;
 
 public class StayInfoRepositoryImpl implements StayInfoRepository
 {
+
     private static StayInfoRepository repository = null;
     private Set<StayInformation> stayInfoDB;
 
