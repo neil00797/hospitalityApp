@@ -16,6 +16,7 @@ public class OccupantFactoryTest {
         Occupant occupant = OccupantFactory.createOccupant("Neil", "Johnson");
 
         Assert.assertEquals(occupant, occupant);
+        System.out.println(occupant);
         //Test
     }
 }
