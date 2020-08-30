@@ -43,6 +43,7 @@ public class OccupantRepositoryImplTest {
     public void e_delete(){
         boolean deleted = repository.delete(occupant.getOccupantId());
         Assert.assertTrue(deleted);
+        System.out.println("Successfully deleted!");
     }
 
     @Test

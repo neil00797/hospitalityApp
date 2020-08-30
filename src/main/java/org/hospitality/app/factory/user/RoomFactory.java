@@ -9,13 +9,13 @@ import org.hospitality.app.entity.user.Room;
 import org.hospitality.app.util.Helper;
 
 public class RoomFactory {
-    public static Room createRoom(String availability, Occupant occupant)
+    public static Room createRoom(String availability, String occupantId)
     {
         String roomId = Helper.generateId();
 
         Room room = new Room.Builder()
                 .setRoomNumber(roomId)
-                .setOccupantId(occupant.getOccupantId())
+                .setOccupantId(occupantId)
                 .setAvailability(availability)
                 .build();
 

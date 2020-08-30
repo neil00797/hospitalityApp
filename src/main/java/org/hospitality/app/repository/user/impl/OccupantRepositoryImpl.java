@@ -1,5 +1,9 @@
 package org.hospitality.app.repository.user.impl;
-
+/*
+    author: @NeilJohnson
+    desc: Occupant Repository Implementation
+    date: 29-06-2020
+ */
 import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.repository.user.OccupantRepository;
 
@@ -28,6 +32,8 @@ public class OccupantRepositoryImpl implements OccupantRepository {
 
         for (Occupant occupant: this.occupantDB){
             if (occupant.getOccupantId().equalsIgnoreCase(id));
+
+            return occupant;
         }
 
         return null;
