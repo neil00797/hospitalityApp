@@ -1,6 +1,10 @@
 package org.hospitality.app.repository.user;
 
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
+/*
+    author: @SenzoMkupa
+    date: 31-08-2020
+ */
 
 import java.util.Set;
 

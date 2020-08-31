@@ -1,4 +1,9 @@
 package org.hospitality.app.repository.user.impl;
+/*
+    author: @SenzoMkupa
+    date: 31-08-2020
+ */
+
 
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
 import org.hospitality.app.repository.user.OccupantMedicalDetailsRepository;

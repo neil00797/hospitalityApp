@@ -1,10 +1,12 @@
 package org.hospitality.app.repository.service.impl;
+/*
+    author: @SenzoMkupa
+    date: 31-08-2020
+ */
+
 
 import org.hospitality.app.entity.service.Medicine;
-import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.repository.service.MedicineRepository;
-import org.hospitality.app.repository.user.OccupantRepository;
-import org.hospitality.app.repository.user.impl.OccupantRepositoryImpl;
 
 import java.util.HashSet;
 import java.util.Set;
