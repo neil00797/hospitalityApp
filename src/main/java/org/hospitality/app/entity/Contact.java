@@ -48,5 +48,9 @@ public class Contact {
         public Contact build(){
             return new Contact(this);
         }
+
+        public Builder copy(Contact contact) {
+            return null;
+        }
     }
 }
