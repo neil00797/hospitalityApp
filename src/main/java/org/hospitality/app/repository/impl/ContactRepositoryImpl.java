@@ -1,16 +1,12 @@
-package org.hospitality.app.repository.implentation;
+package org.hospitality.app.repository.impl;
 
 import org.hospitality.app.entity.Contact;
 import org.hospitality.app.repository.ContactRepository;
 
-// Author: Thokozile Snono
-// Entity: Contact
-// Date: 3 July
-
 import java.util.HashSet;
 import java.util.Set;
 
-public class ContactRepositoryImpl extends ContactRepository {
+public class ContactRepositoryImpl implements ContactRepository {
 
     private static ContactRepository repository = null;
     private Set <Contact> contactDB;

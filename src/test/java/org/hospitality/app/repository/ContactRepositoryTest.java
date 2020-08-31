@@ -3,6 +3,7 @@ package org.hospitality.app.repository;
 import org.hospitality.app.entity.Contact;
 import org.hospitality.app.factory.ContactFactory;
 //import org.hospitality.app.repository.implentation.ContactRepositoryImpl;
+import org.hospitality.app.repository.impl.ContactRepositoryImpl;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,9 +15,9 @@ public class ContactRepositoryTest {
     private static Contact contact = ContactFactory.createContact("thokozile@gmail.com","073");
 
     @Test
-    protected void a_create(){
+    public void a_create(){
         Contact created = repository.create(contact);
-        Assert.assertEquals(contact.getEmail(), created.getEmail() + contact.getContactNumber(), created.getContactNumber());
+        Assert.assertEquals(contact.getEmail(), created.getEmail());
         System.out.println("Created: " + created);
     }
 

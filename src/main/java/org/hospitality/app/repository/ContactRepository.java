@@ -9,12 +9,6 @@ import org.hospitality.app.user.IRepository;
 
 import java.util.Set;
 
-public abstract class ContactRepository implements IRepository<Contact, String> {
-    public abstract Set<Contact> getAll();
-
-    //Contact update(Contact contact);
-
-    //Contact update(Contact contact);
-
-    //Contact update(Contact updated);
+public interface ContactRepository extends IRepository < Contact, String> {
+    Set<Contact> getAll();
 }

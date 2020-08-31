@@ -4,7 +4,7 @@ package org.hospitality.app.user;
 // Entity: Contact
 // Date: 31 August 2020
 
-public interface IRepository <type, email, contactNumber>{
+public interface IRepository <type, email>{
     type create(type t);
     type read(email email);
     type upadate(type t);
