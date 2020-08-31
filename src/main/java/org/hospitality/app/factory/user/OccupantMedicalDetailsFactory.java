@@ -2,18 +2,13 @@ package org.hospitality.app.factory.user;
 
 import org.hospitality.app.entity.service.Ailment;
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
-import org.hospitality.app.util.Helper;
 
 import java.util.Date;
 
 public class OccupantMedicalDetailsFactory {
-    public static OccupantMedicalDetails createOccupantMedicalDetails(int height, int weight, Date dateOfBirth){
-        String occupantId = Helper.generateId();
-        String ailmentId = Helper.generateId();
-
+    public static OccupantMedicalDetails createOccupantMedicalDetails(Ailment ailment, int height, int weight, Date dateOfBirth){
         OccupantMedicalDetails occupantMedicalDetails = new OccupantMedicalDetails.Builder()
-                .setAilmentID(ailmentId)
-                .setOccupantID(occupantId)
+                .setAilment(ailment)
                 .setHeight(height)
                 .setWeight(weight)
                 .setDateOfBirth(dateOfBirth)

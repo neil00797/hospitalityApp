@@ -3,27 +3,21 @@ package org.hospitality.app.entity.user;
 import org.hospitality.app.entity.service.Ailment;
 
 import java.util.Date;
-import java.util.Objects;
 
 public class OccupantMedicalDetails {
-    private String ailmentId,occupantId;
+    private Ailment ailment;
     private int height,weight;
     private Date dateOfBirth;
 
     private OccupantMedicalDetails(Builder builder){
-        this.ailmentId = builder.ailmentID;
-        this.occupantId= builder.occupantID;
+        this.ailment = builder.ailment;
         this.height = builder.height;
         this.weight = builder.weight;
         this.dateOfBirth = builder.dateOfBirth;
     }
 
-    public String getAilmentId() {
-        return ailmentId;
-    }
-
-    public String getOccupantId() {
-        return occupantId;
+    public Ailment getAilment() {
+        return ailment;
     }
 
     public int getHeight() {
@@ -39,24 +33,9 @@ public class OccupantMedicalDetails {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof OccupantMedicalDetails)) return false;
-        OccupantMedicalDetails that = (OccupantMedicalDetails) o;
-        return getAilmentId().equals(that.getAilmentId()) &&
-                getOccupantId().equals(that.getOccupantId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getAilmentId(), getOccupantId());
-    }
-
-    @Override
     public String toString() {
         return "OccupantMedicalDetails{" +
-                "ailmentId='" + ailmentId + '\'' +
-                ", occupantId='" + occupantId + '\'' +
+                "ailment=" + ailment +
                 ", height=" + height +
                 ", weight=" + weight +
                 ", dateOfBirth=" + dateOfBirth +
@@ -64,16 +43,12 @@ public class OccupantMedicalDetails {
     }
 
     public static class Builder{
-        private String ailmentID,occupantID;
+        private Ailment ailment;
         private int height,weight;
         private Date dateOfBirth;
 
-        public Builder setAilmentID (String ailmentID){
-            this.ailmentID=ailmentID;
-            return this;
-        }
-        public Builder setOccupantID (String occupantID){
-            this.occupantID=occupantID;
+        public Builder setAilment (Ailment ailment){
+            this.ailment=ailment;
             return this;
         }
         public Builder setHeight(int height){
@@ -90,8 +65,7 @@ public class OccupantMedicalDetails {
         }
 
         public Builder copy(OccupantMedicalDetails occupantMedicalDetails){
-            this.ailmentID=ailmentID;
-            this.occupantID=occupantID;
+            this.ailment=ailment;
             this.height=height;
             this.weight=weight;
             this.dateOfBirth=dateOfBirth;
