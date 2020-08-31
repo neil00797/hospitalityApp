@@ -33,6 +33,10 @@ public class Service {
                 '}';
     }
 
+    public String getServiceId() {
+        return serviceId();
+    }
+
     public static class Builder {
 
         public String serviceType;
