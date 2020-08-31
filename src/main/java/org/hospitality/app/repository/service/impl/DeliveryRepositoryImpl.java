@@ -5,6 +5,7 @@ package org.hospitality.app.repository.service.impl;
     date: 24-08-2020
  */
 import org.hospitality.app.entity.service.Delivery;
+import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.repository.service.DeliveryRepository;
 
 import java.util.HashSet;
