@@ -7,15 +7,17 @@ package org.hospitality.app.entity.service;
 
 
 public class Payment {
-    public String paymentMethod;
+    public String receiptNumber, paymentMethod;
     public double roomCost, serviceCost, totalStayCost;
 
     private Payment(Builder builder){
+        this.receiptNumber = builder.receiptNumber;
         this.paymentMethod = builder.paymentMethod;
         this.roomCost = builder.roomCost;
         this.serviceCost = builder.serviceCost;
         this.totalStayCost = builder.totalStayCost;
     }
+    public String getReceiptNumber(){return receiptNumber;}
 
     public String getPaymentMethod() {
         return paymentMethod;
@@ -36,7 +38,8 @@ public class Payment {
     @Override
     public String toString() {
         return "Payment{" +
-                "paymentMethod='" + paymentMethod + '\'' +
+                "receiptNumber='" + receiptNumber + '\'' +
+                ", paymentMethod='" + paymentMethod +
                 ", roomCost=" + roomCost +
                 ", serviceCost=" + serviceCost +
                 ", totalStayCost=" + totalStayCost +
@@ -44,8 +47,13 @@ public class Payment {
     }
 
     public static class Builder{
-        private String paymentMethod;
+        private String receiptNumber, paymentMethod;
         private double roomCost, serviceCost, totalStayCost;
+
+        public Builder setReceiptNumber(String receiptNumber) {
+            this.receiptNumber = receiptNumber;
+            return this;
+        }
 
         public Builder setPaymentMethod(String paymentMethod) {
             this.paymentMethod = paymentMethod;
@@ -68,6 +76,7 @@ public class Payment {
         }
 
         public Builder copy(Payment payment){
+            this.receiptNumber = payment.receiptNumber;
             this.paymentMethod = payment.paymentMethod;
             this.roomCost = payment.roomCost;
             this.serviceCost = payment.serviceCost;
