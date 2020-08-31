@@ -9,34 +9,39 @@ import org.hospitality.app.factory.service.ServiceFactory;
 import org.hospitality.app.repository.service.ServiceRepository;
 import org.hospitality.app.repository.service.impl.ServiceRepositoryImpl;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
-import java.util.Set;
 
-public class ServiceRepositoryImplTest implements ServiceRepository{
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class ServiceRepositoryImplTest {
     private static ServiceRepository repository = ServiceRepositoryImpl.getRepository();
     private static Service service = ServiceFactory.createService("Laundry");
 
 
     @Test
-    public void create(){
+    public void a_create(){
         Service created = repository.create(service);
         Assert.assertEquals(service.getServiceId(),created.getServiceId());
         System.out.println("Created Id:" + created);
     }
+
+
     @Test
-    public void read(){
+    public void b_read(){
         Service read = repository.read(service.getServiceId());
         System.out.println("Read:" + read);
     }
+
     @Test
-    public void update(){
+    public void c_update(){
         Service updated = new Service.Builder().copy(service).setserviceId("2345").setserviceType("Laundry").build();
         updated = repository.update(updated);
         System.out.println("Updated:" + updated);
     }
     @Test
-    public void delete(){
+    public void e_delete(){
         boolean deleted = repository.delete(service.getServiceId());
         Assert.assertTrue(deleted);
     }
@@ -45,30 +50,6 @@ public class ServiceRepositoryImplTest implements ServiceRepository{
         System.out.println("Get all: " + repository.getAll());
     }
 
-    @Override
-    public Set<Service> getAll() {
-        return null;
-    }
-
-    @Override
-    public Service create(Service service) {
-        return null;
-    }
-
-    @Override
-    public Service read(String s) {
-        return null;
-    }
-
-    @Override
-    public Service update(Service service) {
-        return null;
-    }
-
-    @Override
-    public boolean delete(String s) {
-        return false;
-    }
 }
 
 
