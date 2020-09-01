@@ -1,6 +1,6 @@
 package org.hospitality.app.factory.user;
 
-import org.hospitality.app.entity.service.Ailment;
+import org.hospitality.app.entity.utility.Ailment;
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
 
 import java.util.Date;

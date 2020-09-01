@@ -1,11 +1,10 @@
 package org.hospitality.app.factory.user;
 
-import org.hospitality.app.entity.service.Ailment;
-import org.hospitality.app.entity.service.Medicine;
+import org.hospitality.app.entity.utility.Ailment;
+import org.hospitality.app.entity.utility.Medicine;
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
-import org.hospitality.app.factory.service.AilmentFactory;
-import org.hospitality.app.factory.service.MedicineFactory;
-import org.hospitality.app.factory.user.OccupantMedicalDetailsFactory;
+import org.hospitality.app.factory.utility.AilmentFactory;
+import org.hospitality.app.factory.utility.MedicineFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
