@@ -1,5 +1,11 @@
 package org.hospitality.app.service.user.impl;
 
+/*
+    author: @NeilJohnson
+    desc: Occupant service implementation
+    date: 01-09-2020
+ */
+
 import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.repository.user.OccupantRepository;
 import org.hospitality.app.repository.user.impl.OccupantRepositoryImpl;
@@ -47,15 +53,15 @@ public class OccupantServiceImpl implements OccupantService {
     }
 
     @Override
-    public Set<Occupant> getAllStartingWithN() {
+    public Set<Occupant> getByFirstName() {
         Set<Occupant> occupants = getAll();
-        Set<Occupant> occupantsStartingWithN = new HashSet<>();
+        Set<Occupant> occupantsByFirstName = new HashSet<>();
 
         for (Occupant occupant: occupants){
-            if (occupant.getFirstName().trim().toLowerCase().startsWith("N")){
-                occupantsStartingWithN.add(occupant);
+            if (occupant.getFirstName().equalsIgnoreCase("Neil")){
+                occupantsByFirstName.add(occupant);
             }
         }
-        return occupantsStartingWithN;
+        return occupantsByFirstName;
     }
-}
+    }
