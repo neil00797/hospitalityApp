@@ -1,12 +1,12 @@
-package org.hospitality.app.repository.service.impl;
+package org.hospitality.app.repository.utility.impl;
 /*
     author: @SenzoMkupa
     date: 31-08-2020
  */
 
 
-import org.hospitality.app.entity.service.Medicine;
-import org.hospitality.app.repository.service.MedicineRepository;
+import org.hospitality.app.entity.utility.Medicine;
+import org.hospitality.app.repository.utility.MedicineRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -67,8 +67,5 @@ public class MedicineRepositoryImpl implements MedicineRepository {
         return false;
 
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 4ab93862dbd3e0e558d97df4be06332fdbfdac0d

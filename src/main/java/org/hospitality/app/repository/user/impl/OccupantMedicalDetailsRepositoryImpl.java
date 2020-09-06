@@ -13,8 +13,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class OccupantMedicalDetailsRepositoryImpl implements OccupantMedicalDetailsRepository {
-
-
     private static OccupantMedicalDetailsRepository repository = null;
     private Set<OccupantMedicalDetails> occupantMedicalDetailsDB;
 
@@ -34,6 +32,7 @@ public class OccupantMedicalDetailsRepositoryImpl implements OccupantMedicalDeta
 
     @Override
     public OccupantMedicalDetails read(String occupantMedicalDetails) {
+
         return null;
     }
 
@@ -45,21 +44,13 @@ public class OccupantMedicalDetailsRepositoryImpl implements OccupantMedicalDeta
 
         boolean deleteOccupantMedicalDetails = false;
 
-<<<<<<< HEAD
         if (deleteOccupantMedicalDetails){
             this.occupantMedicalDetailsDB.add(occupantMedicalDetails);
             return occupantMedicalDetails;
         }
         return null;
     }
-=======
-            if (deleteOccupantMedicalDetails){
-                this.occupantMedicalDetailsDB.add(occupantMedicalDetails);
-                return occupantMedicalDetails;
-            }
-            return null;
-        }
->>>>>>> 4ab93862dbd3e0e558d97df4be06332fdbfdac0d
+
 
     @Override
     public boolean delete(String occupantMedicalDetails) {
@@ -79,8 +70,5 @@ public class OccupantMedicalDetailsRepositoryImpl implements OccupantMedicalDeta
     public Set<OccupantMedicalDetails> getAll() {
         return this.occupantMedicalDetailsDB;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4ab93862dbd3e0e558d97df4be06332fdbfdac0d
+

@@ -1,4 +1,4 @@
-package org.hospitality.app.repository.user.impl;
+package org.hospitality.app.repository.user;
 
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
 /*
