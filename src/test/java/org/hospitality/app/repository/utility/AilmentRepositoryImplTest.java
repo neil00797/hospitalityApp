@@ -1,15 +1,17 @@
-package org.hospitality.app.repository.service.impl;
+package org.hospitality.app.repository.utility.impl;
 /*
     author: @SenzoMkupa
     date: 31-08-2020
  */
 
-import org.hospitality.app.entity.service.Ailment;
-import org.hospitality.app.entity.service.Medicine;
-import org.hospitality.app.factory.service.AilmentFactory;
-import org.hospitality.app.factory.service.MedicineFactory;
+import org.hospitality.app.entity.utility.Ailment;
+import org.hospitality.app.entity.utility.Medicine;
+import org.hospitality.app.factory.utility.AilmentFactory;
+import org.hospitality.app.factory.utility.MedicineFactory;
+import org.hospitality.app.repository.utility.impl.AilmentRepositoryImpl;
 
-import org.hospitality.app.repository.service.AilmentRepository;
+
+import org.hospitality.app.repository.utility.AilmentRepository;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;

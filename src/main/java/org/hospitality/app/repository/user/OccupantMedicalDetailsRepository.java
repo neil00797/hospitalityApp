@@ -1,4 +1,4 @@
-package org.hospitality.app.repository.user;
+package org.hospitality.app.repository.user.impl;
 
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
 /*
@@ -9,7 +9,6 @@ import org.hospitality.app.entity.user.OccupantMedicalDetails;
 import java.util.Set;
 
 public interface OccupantMedicalDetailsRepository {
-<<<<<<< HEAD
     OccupantMedicalDetails create(OccupantMedicalDetails occupantMedicalDetails);
     OccupantMedicalDetails read(String occupantMedicalDetails);
     OccupantMedicalDetails update(OccupantMedicalDetails occupantMedicalDetails);
@@ -18,13 +17,4 @@ public interface OccupantMedicalDetailsRepository {
 
 
 }
-=======
-        OccupantMedicalDetails create(OccupantMedicalDetails occupantMedicalDetails);
-        OccupantMedicalDetails read(String occupantMedicalDetails);
-        OccupantMedicalDetails update(OccupantMedicalDetails occupantMedicalDetails);
-        boolean delete(String occupantMedicalDetails);
-        Set<OccupantMedicalDetails> getAll();
 
-
-}
->>>>>>> 4ab93862dbd3e0e558d97df4be06332fdbfdac0d
