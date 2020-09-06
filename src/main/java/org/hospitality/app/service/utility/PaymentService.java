@@ -7,5 +7,8 @@ import java.util.Set;
 
 public interface PaymentService extends IService<Payment, String> {
     Set<Payment> getAll();
+    //unique
+    Set<Payment> getCashPayments();
+
 
 }
