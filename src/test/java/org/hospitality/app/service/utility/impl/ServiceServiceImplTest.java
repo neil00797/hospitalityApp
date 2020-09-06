@@ -1,4 +1,4 @@
-package org.hospitality.app.service;
+package org.hospitality.app.service.utility.impl;
 /*
     author: @Moliehi Mabilietse
     desc: Service test
