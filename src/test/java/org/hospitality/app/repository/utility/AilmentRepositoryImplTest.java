@@ -1,4 +1,4 @@
-package org.hospitality.app.repository.utility.impl;
+package org.hospitality.app.repository.utility;
 /*
     author: @SenzoMkupa
     date: 31-08-2020
@@ -10,15 +10,10 @@ import org.hospitality.app.factory.utility.AilmentFactory;
 import org.hospitality.app.factory.utility.MedicineFactory;
 import org.hospitality.app.repository.utility.impl.AilmentRepositoryImpl;
 
-
-import org.hospitality.app.repository.utility.AilmentRepository;
-
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AilmentRepositoryImplTest {
 
@@ -47,7 +42,7 @@ public class AilmentRepositoryImplTest {
 
     @Test
     public void c_update() {
-        Ailment updated = new Ailment.Builder().copy(ailment).setAilmentID("10111").setAilmentDesc("pain").setMedicine(medicine).build();
+        Ailment updated = new Ailment.Builder().copy(ailment).setAilmentID("10211").setAilmentDesc("pain").setMedicine(medicine).build();
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
     }

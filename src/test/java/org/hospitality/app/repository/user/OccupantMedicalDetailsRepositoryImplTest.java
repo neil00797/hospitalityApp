@@ -1,18 +1,17 @@
-package org.hospitality.app.repository.user.impl;
+package org.hospitality.app.repository.user;
 /*
     author: @SenzoMkupa
     date: 31-08-2020
  */
 
 
-<<<<<<< HEAD
-import org.hospitality.app.entity.service.Ailment;
-import org.hospitality.app.entity.service.Medicine;
 import org.hospitality.app.entity.user.OccupantMedicalDetails;
-import org.hospitality.app.factory.service.AilmentFactory;
-import org.hospitality.app.factory.service.MedicineFactory;
+import org.hospitality.app.entity.utility.Ailment;
+import org.hospitality.app.entity.utility.Medicine;
 import org.hospitality.app.factory.user.OccupantMedicalDetailsFactory;
-import org.hospitality.app.repository.user.OccupantMedicalDetailsRepository;
+import org.hospitality.app.factory.utility.AilmentFactory;
+import org.hospitality.app.factory.utility.MedicineFactory;
+import org.hospitality.app.repository.user.impl.OccupantMedicalDetailsRepositoryImpl;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -20,7 +19,7 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Date;
 
-import static org.junit.Assert.*;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OccupantMedicalDetailsRepositoryImplTest {
 
@@ -57,32 +56,6 @@ public class OccupantMedicalDetailsRepositoryImplTest {
 
     @Test
     public void d_getAll() {
-        System.out.println("Get all: "+repository.getAll());
-=======
-import org.junit.Test;
-
-import static org.junit.Assert.*;
-
-public class OccupantMedicalDetailsRepositoryImplTest {
-
-    @Test
-    public void create() {
-    }
-
-    @Test
-    public void read() {
-    }
-
-    @Test
-    public void update() {
-    }
-
-    @Test
-    public void delete() {
-    }
-
-    @Test
-    public void getAll() {
->>>>>>> 4ab93862dbd3e0e558d97df4be06332fdbfdac0d
+        System.out.println("Get all: " + repository.getAll());
     }
 }

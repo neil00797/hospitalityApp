@@ -1,12 +1,12 @@
-package org.hospitality.app.repository.service.impl;
+package org.hospitality.app.repository.utility.impl;
 /*
     author: @SenzoMkupa
     date: 31-08-2020
  */
 
 
-import org.hospitality.app.entity.service.Ailment;
-import org.hospitality.app.repository.service.AilmentRepository;
+import org.hospitality.app.entity.utility.Ailment;
+import org.hospitality.app.repository.utility.AilmentRepository;
 
 
 import java.util.HashSet;
@@ -67,8 +67,6 @@ public class AilmentRepositoryImpl implements AilmentRepository {
         return false;
 
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 4ab93862dbd3e0e558d97df4be06332fdbfdac0d
+
