@@ -1,11 +1,13 @@
 package org.hospitality.app.service.utility.impl;
 
+import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.entity.utility.Delivery;
 import org.hospitality.app.repository.utility.DeliveryRepository;
 import org.hospitality.app.repository.utility.impl.DeliveryRepositoryImpl;
 import org.hospitality.app.service.utility.DeliveryService;
 
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class DeliveryServiceImpl implements DeliveryService {
@@ -25,6 +27,20 @@ public class DeliveryServiceImpl implements DeliveryService {
     public Set<Delivery> getAll() {
         return this.repository.getAll();
     }
+
+    @Override
+    public Set<Delivery> getNewService() {
+        Set<Delivery> deliveries = getAll();
+        Set<Delivery> deliveryServiceByName = new HashSet<>();
+
+        for (Delivery delivery: deliveries){
+            if (delivery.getServiceType().equalsIgnoreCase("Medication Collection")){
+                deliveryServiceByName.add(delivery);
+            }
+        }
+        return deliveryServiceByName;
+    }
+
 
     @Override
     public Delivery create(Delivery delivery) {
