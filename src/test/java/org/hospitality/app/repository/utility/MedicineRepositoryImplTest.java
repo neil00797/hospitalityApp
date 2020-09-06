@@ -1,12 +1,13 @@
-package org.hospitality.app.repository.utility;
+package org.hospitality.app.repository.service.impl;
 /*
     author: @SenzoMkupa
     date: 31-08-2020
  */
 
-import org.hospitality.app.entity.utility.Medicine;
-import org.hospitality.app.factory.utility.MedicineFactory;
-import org.hospitality.app.repository.utility.impl.MedicineRepositoryImpl;
+import org.hospitality.app.entity.service.Medicine;
+
+import org.hospitality.app.factory.service.MedicineFactory;
+import org.hospitality.app.repository.service.MedicineRepository;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
