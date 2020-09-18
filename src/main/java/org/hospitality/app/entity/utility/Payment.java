@@ -6,9 +6,13 @@ package org.hospitality.app.entity.utility;
  */
 
 
-public class Payment {
+import java.io.Serializable;
+
+public class Payment implements Serializable {
     public String receiptNumber, paymentMethod;
     public double roomCost, serviceCost, totalStayCost;
+
+    private Payment(){}
 
     private Payment(Builder builder){
         this.receiptNumber = builder.receiptNumber;
