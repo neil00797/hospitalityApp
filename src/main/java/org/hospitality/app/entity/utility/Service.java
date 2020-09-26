@@ -36,6 +36,8 @@ public class Service {
     public String getServiceId() {
         return serviceId();
     }
+    public String getServiceType(){
+        return serviceType();}
 
     public static class Builder {
 

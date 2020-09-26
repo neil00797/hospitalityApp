@@ -1,4 +1,4 @@
-package org.hospitality.app.service;
+package org.hospitality.app.service.user.impl;
 
 /*
     author: @NeilJohnson

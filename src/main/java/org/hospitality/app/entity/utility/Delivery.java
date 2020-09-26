@@ -5,9 +5,12 @@ package org.hospitality.app.entity.utility;
     desc: Entity for Delivery
  */
 
-public class Delivery {
+import java.io.Serializable;
+
+public class Delivery implements Serializable {
     private String deliveryNumber, roomNumber, serviceType ;
 
+    private Delivery(){}
 
     private Delivery(Builder builder){
         this.deliveryNumber = builder.deliveryNumber;
