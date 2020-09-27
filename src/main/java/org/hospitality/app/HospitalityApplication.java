@@ -6,13 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@EnableAutoConfiguration
+
+@SpringBootApplication
 public class HospitalityApplication {
 
-    @RequestMapping({"/","/indexd.xys"})
+    @RequestMapping({"/","/indexed.xys"})
     String home(){
-        return "Hospitality Application running DEMO";
+        return "Hospitality App Running DEMO";
     }
 
     public static void main (String[]args){
