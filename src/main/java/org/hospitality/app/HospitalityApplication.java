@@ -6,17 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 @SpringBootApplication
-public class HospitalityApplication {
-
-    @RequestMapping({"/","/indexd.xys"})
-    String home()
-    {
-        return "Hospitality Application running DEMO";
-    }
-
+public class HospitalityApplication
+{
     public static void main (String[]args)
     {
         SpringApplication.run(HospitalityApplication.class, args);

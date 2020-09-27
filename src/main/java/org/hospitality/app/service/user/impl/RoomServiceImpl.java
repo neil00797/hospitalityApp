@@ -10,10 +10,11 @@ import org.hospitality.app.entity.user.Room;
 import org.hospitality.app.repository.user.RoomRepository;
 import org.hospitality.app.repository.user.impl.RoomRepositoryImpl;
 import org.hospitality.app.service.user.RoomService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class RoomServiceImpl implements RoomService {
     private static RoomService service = null;
     private RoomRepository repository;

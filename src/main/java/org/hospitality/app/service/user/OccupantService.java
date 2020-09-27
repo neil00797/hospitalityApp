@@ -16,4 +16,5 @@ public interface OccupantService extends IService<Occupant, String> {
 
     //Unique business logic
     Set<Occupant> getByFirstName();
+    Set<Occupant> getByLastName();
 }
