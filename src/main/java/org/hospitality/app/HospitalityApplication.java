@@ -8,14 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EnableAutoConfiguration
-public class HospitalityApplication {
+public class HospitalityApplication
+{
 
     @RequestMapping({"/","/indexd.xys"})
-    String home(){
+    String home()
+    {
         return "Hospitality Application running DEMO";
     }
 
-    public static void main (String[]args){
+    public static void main (String[]args)
+    {
         SpringApplication.run(HospitalityApplication.class, args);
     }
 }
