@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@EnableAutoConfiguration
-public class HospitalityApplication
-{
+
+
+@SpringBootApplication
+public class HospitalityApplication {
 
     @RequestMapping({"/","/indexd.xys"})
     String home()
