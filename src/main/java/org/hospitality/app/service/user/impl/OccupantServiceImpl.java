@@ -10,10 +10,12 @@ import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.repository.user.OccupantRepository;
 import org.hospitality.app.repository.user.impl.OccupantRepositoryImpl;
 import org.hospitality.app.service.user.OccupantService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class OccupantServiceImpl implements OccupantService {
     private static OccupantService service = null;
     private OccupantRepository repository;
@@ -63,5 +65,18 @@ public class OccupantServiceImpl implements OccupantService {
             }
         }
         return occupantsByFirstName;
+    }
+
+    @Override
+    public Set<Occupant> getByLastName() {
+        Set<Occupant> occupants = getAll();
+        Set<Occupant> occupantsByLastName = new HashSet<>();
+
+        for (Occupant occupant: occupants){
+            if (occupant.getLastName().equalsIgnoreCase("Johnson")){
+                occupantsByLastName.add(occupant);
+            }
+        }
+        return occupantsByLastName;
     }
     }

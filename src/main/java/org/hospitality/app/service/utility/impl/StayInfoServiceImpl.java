@@ -5,6 +5,7 @@ import org.hospitality.app.entity.user.StayInformation;
 import org.hospitality.app.repository.utility.StayInfoRepository;
 import org.hospitality.app.repository.utility.impl.StayInfoRepositoryImpl;
 import org.hospitality.app.service.utility.StayInfoService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +14,7 @@ import java.util.Set;
     Thaakir Ajouhaar - 217244394
 
  */
-
+@Service
 public class StayInfoServiceImpl implements StayInfoService
 {
     private static StayInfoService service = null;
