@@ -24,6 +24,7 @@ public class OccupantMedicalDetailsRepositoryImpl implements OccupantMedicalDeta
         if (repository == null) repository = new OccupantMedicalDetailsRepositoryImpl();
         return repository;
     }
+
     @Override
     public OccupantMedicalDetails create(OccupantMedicalDetails occupantMedicalDetails) {
         this.occupantMedicalDetailsDB.add(occupantMedicalDetails);
@@ -31,19 +32,17 @@ public class OccupantMedicalDetailsRepositoryImpl implements OccupantMedicalDeta
     }
 
     @Override
-    public OccupantMedicalDetails read(String occupantMedicalDetails) {
-
+    public OccupantMedicalDetails read(String occupantID, String ailmentID) {
+        for (OccupantMedicalDetails occupantMedicalDetails: this.occupantMedicalDetailsDB) {
+            if(occupantMedicalDetails.getOccupantID().equalsIgnoreCase(occupantID) && occupantMedicalDetails.getAilment().equalsIgnoreCase(ailmentID));
+            return occupantMedicalDetails;
+        }
         return null;
     }
 
-
-
-
     @Override
     public OccupantMedicalDetails update(OccupantMedicalDetails occupantMedicalDetails) {
-
-        boolean deleteOccupantMedicalDetails = false;
-
+        boolean deleteOccupantMedicalDetails = delete(occupantMedicalDetails.getOccupantID(),occupantMedicalDetails.getAilment());
         if (deleteOccupantMedicalDetails){
             this.occupantMedicalDetailsDB.add(occupantMedicalDetails);
             return occupantMedicalDetails;
@@ -51,20 +50,15 @@ public class OccupantMedicalDetailsRepositoryImpl implements OccupantMedicalDeta
         return null;
     }
 
-
     @Override
-    public boolean delete(String occupantMedicalDetails) {
-        OccupantMedicalDetails occupantMedicalDetails1 = read(occupantMedicalDetails);
-
-        if(occupantMedicalDetails1 != null){
-            this.occupantMedicalDetailsDB.remove(occupantMedicalDetails1);
+    public boolean delete(String occupantID, String ailmentID) {
+        OccupantMedicalDetails occupantMedicalDetails = read(occupantID,ailmentID);
+        if(occupantMedicalDetails != null){
+            this.occupantMedicalDetailsDB.remove(occupantMedicalDetails);
             return true;
         }
         return false;
     }
-
-
-
 
     @Override
     public Set<OccupantMedicalDetails> getAll() {

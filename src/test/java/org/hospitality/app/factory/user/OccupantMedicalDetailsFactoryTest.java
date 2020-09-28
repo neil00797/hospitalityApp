@@ -16,14 +16,10 @@ public class OccupantMedicalDetailsFactoryTest {
 
     @Test
     public void createOccupantMedicalDetails() {
-        String medDesc = "panado";
-        Medicine medicine = MedicineFactory.createMedicine(medDesc);
-        String ailDesc = "Flu";
-        Ailment ailment = AilmentFactory.createAilment(ailDesc,medicine);
         int height =150;
         int weight =65;
         Date dob = new Date(1996,05,31);
-        OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails(ailment,height,weight,dob);
+        OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails(height,weight,dob);
         Assert.assertNotNull(occupantMedicalDetails);
     }
 }

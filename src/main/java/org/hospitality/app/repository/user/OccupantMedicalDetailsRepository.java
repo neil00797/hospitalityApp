@@ -10,9 +10,9 @@ import java.util.Set;
 
 public interface OccupantMedicalDetailsRepository {
     OccupantMedicalDetails create(OccupantMedicalDetails occupantMedicalDetails);
-    OccupantMedicalDetails read(String occupantMedicalDetails);
+    OccupantMedicalDetails read(String occupantMedicalDetails,String ailmentID);
     OccupantMedicalDetails update(OccupantMedicalDetails occupantMedicalDetails);
-    boolean delete(String occupantMedicalDetails);
+    boolean delete(String occupantID,String ailmentID);
     Set<OccupantMedicalDetails> getAll();
 
 
