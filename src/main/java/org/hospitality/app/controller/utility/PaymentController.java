@@ -9,19 +9,22 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/payment")
-public class PaymentController {
+public class PaymentController
+{
 
     @Autowired
     private PaymentService paymentService;
 
     @PostMapping("/create")
-    public Payment create(@RequestBody Payment payment) {
+    public Payment create(@RequestBody Payment payment)
+    {
         Payment newPayment = PaymentFactory.createPayment(payment.getPaymentMethod(),payment.getRoomCost(),payment.getServiceCost(),payment.getTotalStayCost());
         return paymentService.create(newPayment);
     }
 
     @GetMapping("/all")
-    public Set<Payment> getAll(){
+    public Set<Payment> getAll()
+    {
         return paymentService.getAll();
 
     }

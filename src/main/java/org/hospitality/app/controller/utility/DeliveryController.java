@@ -24,6 +24,5 @@ public class DeliveryController {
     @GetMapping("/all")
     public Set<Delivery> getAll(){
         return deliveryService.getAll();
-
     }
 }

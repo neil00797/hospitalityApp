@@ -5,11 +5,12 @@ import org.hospitality.app.entity.utility.Delivery;
 import org.hospitality.app.repository.utility.DeliveryRepository;
 import org.hospitality.app.repository.utility.impl.DeliveryRepositoryImpl;
 import org.hospitality.app.service.utility.DeliveryService;
+import org.springframework.stereotype.Service;
 
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class DeliveryServiceImpl implements DeliveryService {
     private static DeliveryService service = null;
     private DeliveryRepository repository;

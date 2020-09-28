@@ -27,7 +27,7 @@ public class OccupantServiceImplTest {
 
 
     @Test
-    public void e_getAll() {
+    public void f_getAll() {
         Set<Occupant> occupants = service.getAll();
 
         System.out.println("All Occupants: " + occupants + "\n");
@@ -62,7 +62,7 @@ public class OccupantServiceImplTest {
     }
 
     @Test
-    public void f_delete() {
+    public void g_delete() {
         boolean deleted = service.delete(occupant.getOccupantId());
         Assert.assertTrue(deleted);
         boolean deleted2 = service.delete(occupant2.getOccupantId());
@@ -75,5 +75,11 @@ public class OccupantServiceImplTest {
     public void d_getByFirstName() {
         Set<Occupant> occByFirstName = service.getByFirstName();
         System.out.println("Occupants named Neil: " + occByFirstName + "\n");
+    }
+
+    @Test
+    public void e_getByLastName() {
+        Set<Occupant> occByLastName = service.getByLastName();
+        System.out.println("Occupants named Johnson: " + occByLastName + "\n");
     }
 }

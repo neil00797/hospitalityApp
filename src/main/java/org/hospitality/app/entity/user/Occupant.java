@@ -12,7 +12,7 @@ public class Occupant {
     private String allergyId;
     private String medicationId;
 
-    private Occupant(Builder builder){
+    public Occupant(Builder builder){
         this.occupantId = builder.occupantId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;

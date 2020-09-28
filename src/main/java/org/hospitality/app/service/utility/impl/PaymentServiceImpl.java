@@ -5,10 +5,11 @@ import org.hospitality.app.entity.utility.Payment;
 import org.hospitality.app.repository.utility.PaymentRepository;
 import org.hospitality.app.repository.utility.impl.PaymentRepositoryImpl;
 import org.hospitality.app.service.utility.PaymentService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class PaymentServiceImpl implements PaymentService {
     private static PaymentService service = null;
     private PaymentRepository repository;
