@@ -12,6 +12,7 @@ import org.hospitality.app.service.utility.ServiceService;
 import java.util.HashSet;
 import java.util.Set;
 
+@org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {
     public static ServiceService service = null;
     private ServiceRepository repository;
