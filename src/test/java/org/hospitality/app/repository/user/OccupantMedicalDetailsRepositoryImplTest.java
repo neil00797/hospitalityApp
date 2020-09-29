@@ -24,26 +24,25 @@ import java.util.Date;
 public class OccupantMedicalDetailsRepositoryImplTest {
 
     private static OccupantMedicalDetailsRepository repository = OccupantMedicalDetailsRepositoryImpl.getRepository();
-    private static String medDesc = "panado";
-    private static Medicine medicine = MedicineFactory.createMedicine(medDesc);
-    private static Ailment ailment = AilmentFactory.createAilment("Covid19",medicine);
-    private static Date dob = new Date(1996,05,31);
-    private static OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails(ailment,700,80,dob);
+    private static Date dob = new Date(2096,07,11);
+    private static OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails(700,80,dob);
 
     @Test
     public void a_create() {
         OccupantMedicalDetails created = repository.create(occupantMedicalDetails);
-        Assert.assertEquals(occupantMedicalDetails.getAilment(),created.getAilment());
+        Assert.assertEquals(occupantMedicalDetails.getOccupantID(),created.getOccupantID());
         System.out.println("Created ID: "+created);
     }
 
     @Test
     public void b_read() {
+        OccupantMedicalDetails read = repository.read(occupantMedicalDetails.getOccupantID(),occupantMedicalDetails.getAilment());
+        System.out.println("Read: " + read);
     }
 
     @Test
     public void c_update() {
-        OccupantMedicalDetails updated = new OccupantMedicalDetails.Builder().copy(occupantMedicalDetails).setAilment(ailment).setWeight(80).setHeight(800).setDateOfBirth(dob).build();
+        OccupantMedicalDetails updated = new OccupantMedicalDetails.Builder().copy(occupantMedicalDetails).setAilmentID("19193").setOccupantID("288549").setWeight(80).setHeight(800).setDateOfBirth(dob).build();
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
 
@@ -51,7 +50,7 @@ public class OccupantMedicalDetailsRepositoryImplTest {
 
     @Test
     public void e_delete() {
-        //boolean deleted = repository.delete(occupantMedicalDetails.getAilment());
+        boolean deleted = repository.delete(occupantMedicalDetails.getOccupantID(),occupantMedicalDetails.getAilment());
     }
 
     @Test

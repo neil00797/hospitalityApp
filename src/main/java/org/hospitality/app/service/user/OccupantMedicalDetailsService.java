@@ -9,6 +9,10 @@ import org.hospitality.app.service.IService;
 
 import java.util.Set;
 
-public interface OccupantMedicalDetailsService extends IService<OccupantMedicalDetails,OccupantMedicalDetails> {
+public interface OccupantMedicalDetailsService {
+    OccupantMedicalDetails create(OccupantMedicalDetails u);
+    OccupantMedicalDetails read(String occupantID,String ailmentID);
+    OccupantMedicalDetails update(OccupantMedicalDetails u);
+    boolean delete(String occupantID,String ailmentID);
     Set<OccupantMedicalDetails> getAll();
 }

@@ -27,7 +27,6 @@ public class AilmentServiceImplTest {
     @Test
     public void e_getAll() {
         Set<Ailment> ailments =service.getAll();
-
         System.out.println("All ailments "+ailments);
     }
 
