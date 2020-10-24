@@ -25,7 +25,7 @@ public class OccupantMedicalDetailsRepositoryImplTest {
 
     private static OccupantMedicalDetailsRepository repository = OccupantMedicalDetailsRepositoryImpl.getRepository();
     private static Date dob = new Date(2096,07,11);
-    private static OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails(700,80,dob);
+    private static OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails("101","90220", 192, 95, dob );
 
     @Test
     public void a_create() {
