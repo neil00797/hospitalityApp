@@ -19,7 +19,7 @@ public class OccupantMedicalDetailsFactoryTest {
         int height =150;
         int weight =65;
         Date dob = new Date(1996,05,31);
-        OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails(height,weight,dob);
+        OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails("101", "90220", height, weight, dob );
         Assert.assertNotNull(occupantMedicalDetails);
     }
 }
