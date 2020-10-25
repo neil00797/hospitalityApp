@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class OccupantMedicalDetailsServiceImplTest {
     private static OccupantMedicalDetailsService service = OccupantMedicalDetailsServiceImpl.getService();
     private static Date dob = new Date(1996,05,31);
-    private static OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails(180,80,dob);
+    private static OccupantMedicalDetails occupantMedicalDetails = OccupantMedicalDetailsFactory.createOccupantMedicalDetails("101","90221",192, 95, dob);
 
 
 
