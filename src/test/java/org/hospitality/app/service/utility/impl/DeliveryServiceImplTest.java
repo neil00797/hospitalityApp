@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DeliveryServiceImplTest {
-    private static DeliveryService service = DeliveryServiceImpl.getService();
+    private static DeliveryService service;
     private static Delivery delivery = DeliveryFactory.createDelivery("13", "Food Delivery");
     private static Delivery delivery2 = DeliveryFactory.createDelivery("16", "Medication Collection");
 
