@@ -5,7 +5,6 @@ package org.hospitality.app.service.utility.impl;
  */
 
 
-import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.entity.utility.Service;
 import org.hospitality.app.repository.utility.ServiceRepository;
 import org.hospitality.app.repository.utility.impl.ServiceRepositoryImpl;
