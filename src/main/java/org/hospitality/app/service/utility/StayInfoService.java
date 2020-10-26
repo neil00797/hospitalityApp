@@ -17,5 +17,4 @@ public interface StayInfoService extends IService<StayInformation, String>
 
     Set<StayInformation> getAll();
 
-    Set<StayInformation> getStayDuration();
 }

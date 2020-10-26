@@ -1,9 +1,24 @@
 package org.hospitality.app.entity.user;
 
 //Thaakir Ajouhaar 217244394
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class StayInformation
 {
-    private String occupantNumber , occupantId , stayDuration , deliveries ;
+    @Id
+    private String occupantNumber ;
+    private String occupantId ;
+    private String stayDuration ;
+    private String deliveries ;
+
+    protected StayInformation()
+    {
+
+    }
 
     private StayInformation(Builder builder)
     {
@@ -86,5 +101,18 @@ public class StayInformation
         public StayInformation build(){
             return new StayInformation(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StayInformation that = (StayInformation) o;
+        return occupantId.equals(that.occupantId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(occupantId);
     }
 }
