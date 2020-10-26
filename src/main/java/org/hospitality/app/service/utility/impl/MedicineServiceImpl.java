@@ -8,9 +8,10 @@ import org.hospitality.app.entity.utility.Medicine;
 import org.hospitality.app.repository.utility.MedicineRepository;
 import org.hospitality.app.repository.utility.impl.MedicineRepositoryImpl;
 import org.hospitality.app.service.utility.MedicineService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class MedicineServiceImpl implements MedicineService {
     private static MedicineService service= null;
     private MedicineRepository repository;

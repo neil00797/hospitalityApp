@@ -6,13 +6,20 @@ package org.hospitality.app.entity.utility;
  */
 
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
+@Entity
 public class Payment implements Serializable {
-    public String receiptNumber, paymentMethod;
+
+    @Id
+    public String receiptNumber;
+    public String paymentMethod;
     public double roomCost, serviceCost, totalStayCost;
 
-    private Payment(){}
+    // changed from private to protected when adding to database
+    protected Payment(){}
 
     private Payment(Builder builder){
         this.receiptNumber = builder.receiptNumber;

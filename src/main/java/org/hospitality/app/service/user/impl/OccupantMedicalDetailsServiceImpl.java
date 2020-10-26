@@ -8,9 +8,10 @@ import org.hospitality.app.entity.user.OccupantMedicalDetails;
 import org.hospitality.app.repository.user.OccupantMedicalDetailsRepository;
 import org.hospitality.app.repository.user.impl.OccupantMedicalDetailsRepositoryImpl;
 import org.hospitality.app.service.user.OccupantMedicalDetailsService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class OccupantMedicalDetailsServiceImpl implements OccupantMedicalDetailsService {
     private static OccupantMedicalDetailsService service = null;
     private OccupantMedicalDetailsRepository repository;
@@ -34,9 +35,8 @@ public class OccupantMedicalDetailsServiceImpl implements OccupantMedicalDetails
     }
 
     @Override
-    public OccupantMedicalDetails read(OccupantMedicalDetails occupantMedicalDetails) {
-      //  return this.repository.read();
-        return null;
+    public OccupantMedicalDetails read(String occupantID, String ailmentID) {
+        return this.repository.read(occupantID,ailmentID);
     }
 
     @Override
@@ -45,8 +45,9 @@ public class OccupantMedicalDetailsServiceImpl implements OccupantMedicalDetails
     }
 
     @Override
-    public boolean delete(OccupantMedicalDetails occupantMedicalDetails) {
-        //return this.repository.delete();
-        return false;
+    public boolean delete(String occupantID, String ailmentID) {
+        return this.repository.delete(occupantID, ailmentID);
     }
+
+
 }

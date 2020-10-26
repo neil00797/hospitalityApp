@@ -2,22 +2,28 @@ package org.hospitality.app.entity.user;
 
 import org.hospitality.app.entity.utility.Ailment;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class OccupantMedicalDetails {
-    private Ailment ailment;
+public class OccupantMedicalDetails implements Serializable {
+    private String ailmentID,occupantID;
     private int height,weight;
     private Date dateOfBirth;
+    private OccupantMedicalDetails(){}
 
     private OccupantMedicalDetails(Builder builder){
-        this.ailment = builder.ailment;
+        this.ailmentID = builder.ailmentID;
+        this.occupantID= builder.occupantID;
         this.height = builder.height;
         this.weight = builder.weight;
         this.dateOfBirth = builder.dateOfBirth;
     }
+    public String getOccupantID() {
+        return occupantID;
+    }
 
-    public Ailment getAilment() {
-        return ailment;
+    public String getAilment() {
+        return ailmentID;
     }
 
     public int getHeight() {
@@ -35,7 +41,8 @@ public class OccupantMedicalDetails {
     @Override
     public String toString() {
         return "OccupantMedicalDetails{" +
-                "ailment=" + ailment +
+                "ailmentID='" + ailmentID + '\'' +
+                ", occupantID='" + occupantID + '\'' +
                 ", height=" + height +
                 ", weight=" + weight +
                 ", dateOfBirth=" + dateOfBirth +
@@ -43,12 +50,16 @@ public class OccupantMedicalDetails {
     }
 
     public static class Builder{
-        private Ailment ailment;
+        private String ailmentID,occupantID;
         private int height,weight;
         private Date dateOfBirth;
 
-        public Builder setAilment (Ailment ailment){
-            this.ailment=ailment;
+        public Builder setAilmentID (String ailment){
+            this.ailmentID=ailment;
+            return this;
+        }
+        public Builder setOccupantID(String occupantID){
+            this.occupantID=occupantID;
             return this;
         }
         public Builder setHeight(int height){
@@ -65,7 +76,8 @@ public class OccupantMedicalDetails {
         }
 
         public Builder copy(OccupantMedicalDetails occupantMedicalDetails){
-            this.ailment=ailment;
+            this.ailmentID=ailmentID;
+            this.occupantID=occupantID;
             this.height=height;
             this.weight=weight;
             this.dateOfBirth=dateOfBirth;

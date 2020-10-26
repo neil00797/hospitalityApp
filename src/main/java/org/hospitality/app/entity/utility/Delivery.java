@@ -5,12 +5,19 @@ package org.hospitality.app.entity.utility;
     desc: Entity for Delivery
  */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
-public class Delivery implements Serializable {
-    private String deliveryNumber, roomNumber, serviceType ;
+@Entity
+// @Table(name ="new name if you don't want to use class name")
+public class  Delivery implements Serializable {
+    @Id
+    private String deliveryNumber;
+    private String roomNumber, serviceType ;
 
-    private Delivery(){}
+    // changed from private to protected when adding to database
+    protected Delivery(){}
 
     private Delivery(Builder builder){
         this.deliveryNumber = builder.deliveryNumber;
