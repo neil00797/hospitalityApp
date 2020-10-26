@@ -4,8 +4,19 @@ package org.hospitality.app.entity.user;
 // Entity: Contact
 // Date: 3 July
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Email")
 public class Contact {
-    private String email, contactNumber;
+
+    @Id
+    private String email;
+    private String contactNumber;
+
+    protected Contact () {}
 
     private Contact(Contact.Builder builder){
         this.contactNumber = builder.contactNumber;
@@ -47,6 +58,9 @@ public class Contact {
 
         public Contact build(){
             return new Contact(this);
+        }
+
+        public void copy(Contact contact) {
         }
     }
 }
