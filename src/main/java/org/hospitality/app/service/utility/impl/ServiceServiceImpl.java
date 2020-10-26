@@ -4,6 +4,8 @@ package org.hospitality.app.service.utility.impl;
     desc : ServiceService
  */
 
+
+import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.entity.utility.Service;
 import org.hospitality.app.repository.utility.ServiceRepository;
 import org.hospitality.app.repository.utility.impl.ServiceRepositoryImpl;
@@ -49,16 +51,18 @@ public class ServiceServiceImpl implements ServiceService {
         return this.repository.delete(s);
     }
     @Override
-    public Set<Service> getAllStartingWithL() {
+    public Set<Service> getNewService() {
         Set<Service> services = getAll();
-        Set<Service> servicesStartingWithL = new HashSet<>();
+        Set<Service> servicesName = new HashSet<>();
 
         for (Service service: services){
-            if (service.getServiceType().trim().toUpperCase().startsWith("L")){
-                servicesStartingWithL.add(service);
+            if (service.getServiceType().equalsIgnoreCase("Laundry")){
+                servicesName.add(service);
             }
         }
-        return servicesStartingWithL;
+        return servicesName;
     }
 
 }
+
+
