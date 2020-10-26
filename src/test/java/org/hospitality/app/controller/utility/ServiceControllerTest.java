@@ -59,7 +59,7 @@ class ServiceControllerTest {
 
     @Test
     void e_delete() {
-        String url = baseUrl + "delete/" + service.getServiceType();
+       String url = baseUrl + "delete/" + service.getServiceType();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }
