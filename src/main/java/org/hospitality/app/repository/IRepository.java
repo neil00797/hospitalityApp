@@ -5,6 +5,7 @@ package org.hospitality.app.repository;
     date: 29-06-2020
  */
 
+@Deprecated
 public interface IRepository <U, ID>{
     U create(U u);
     U read(ID id);

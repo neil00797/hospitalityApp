@@ -1,16 +1,19 @@
+/*
 package org.hospitality.app.repository.utility.impl;
+*/
 /*
     author: @Shaun Donnelly
     desc: DeliveryRepositoryImpl
     date: 24-08-2020
- */
+ *//*
+
 import org.hospitality.app.entity.utility.Delivery;
 import org.hospitality.app.repository.utility.DeliveryRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-
+@Deprecated
 public class DeliveryRepositoryImpl implements DeliveryRepository {
 
     private static DeliveryRepository repository = null;
@@ -65,3 +68,4 @@ public class DeliveryRepositoryImpl implements DeliveryRepository {
         return this.deliveryDB;
     }
 }
+*/
