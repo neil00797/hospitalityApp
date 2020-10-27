@@ -6,6 +6,7 @@ import org.hospitality.app.entity.utility.Payment;
 import org.hospitality.app.factory.user.StayInformationFactory;
 import org.hospitality.app.factory.utility.PaymentFactory;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -34,6 +35,7 @@ public class StayInformationControllerTest
     private TestRestTemplate restTemplate;
     private String baseURL = "http:/localhost:8080/StayInformation/";
 
+    @Test
     public void testCreate()
     {
 
@@ -47,6 +49,7 @@ public class StayInformationControllerTest
     }
 
     @Test
+    @Ignore
     public void testread() {
         String url = baseURL + "read" + stayInformation.getStayDuration();
         System.out.println("URL: " + url);
@@ -55,6 +58,7 @@ public class StayInformationControllerTest
     }
 
     @Test
+    @Ignore
     public void testupdate()
     {
 
@@ -67,6 +71,7 @@ public class StayInformationControllerTest
     }
 
     @Test
+    @Ignore
     public void testdelete()
     {
         String url = baseURL + "delete" + stayInformation.getOccupantId();
@@ -74,6 +79,8 @@ public class StayInformationControllerTest
         restTemplate.delete(url);
     }
 
+    @Test
+    @Ignore
     public void testGetAll()
     {
         String url = baseURL + "all";
