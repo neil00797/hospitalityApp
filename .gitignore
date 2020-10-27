@@ -1,4 +1,5 @@
 # intellij
 .idea/
 projectIDE.iml
-/hospitalityApp.iml
+hospitalityApp.iml
+target/
