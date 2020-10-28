@@ -5,15 +5,17 @@ import org.hospitality.app.factory.user.StayInformationFactory;
 import org.hospitality.app.service.utility.StayInfoService;
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /*
     Thaakir Ajouhaar - 217244394
 
  */
 
-public class StayInfoServiceImplTest {
-
-    private static StayInfoService service = StayInfoServiceImpl.getService();
+public class StayInfoServiceImplTest
+{
+    @Autowired
+    private static StayInfoService service;
     private static StayInformation stayInformation = StayInformationFactory.createStayInformation("5 days");
     private static StayInformation StayInformation2 = StayInformationFactory.createStayInformation("14 Days" );
 

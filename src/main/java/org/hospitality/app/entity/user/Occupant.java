@@ -5,12 +5,23 @@ package org.hospitality.app.entity.user;
     date: 27-06-2020
  */
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class Occupant {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String occupantId;
     private String firstName;
     private String lastName;
     private String allergyId;
     private String medicationId;
+
+    protected Occupant(){}
 
     public Occupant(Builder builder){
         this.occupantId = builder.occupantId;
@@ -92,5 +103,17 @@ public class Occupant {
             return new Occupant(this);
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return occupantId.equals(builder.occupantId);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(occupantId);
+        }
     }
 }

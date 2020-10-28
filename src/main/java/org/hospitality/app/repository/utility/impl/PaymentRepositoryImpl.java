@@ -1,15 +1,19 @@
+/*
 package org.hospitality.app.repository.utility.impl;
+*/
 /*
     author: @Shaun Donnelly
     desc: PaymentRepositoryImpl
     date: 24-08-2020
- */
+ *//*
+
 import org.hospitality.app.entity.utility.Payment;
 import org.hospitality.app.repository.utility.PaymentRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Deprecated
 public class PaymentRepositoryImpl implements PaymentRepository {
     private static PaymentRepository repository = null;
     private Set<Payment> paymentDB;
@@ -64,3 +68,4 @@ public class PaymentRepositoryImpl implements PaymentRepository {
         return this.paymentDB;
     }
 }
+*/

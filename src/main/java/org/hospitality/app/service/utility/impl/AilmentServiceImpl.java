@@ -8,10 +8,11 @@ import org.hospitality.app.entity.utility.Ailment;
 import org.hospitality.app.repository.utility.AilmentRepository;
 import org.hospitality.app.repository.utility.impl.AilmentRepositoryImpl;
 import org.hospitality.app.service.utility.AilmentService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class AilmentServiceImpl implements AilmentService {
     private  static AilmentService service = null;
     private AilmentRepository repository;

@@ -1,7 +1,10 @@
 package org.hospitality.app.entity.utility;
 
-public class Medicine {
+import java.io.Serializable;
+
+public class Medicine implements Serializable {
     private String medicineID,medicineDesc;
+    private Medicine(){}
 
     private Medicine (Builder builder){
         this.medicineID = builder.medicineID;

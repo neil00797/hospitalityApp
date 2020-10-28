@@ -5,10 +5,12 @@ package org.hospitality.app.repository.user;
     date: 29-06-2020
  */
 import org.hospitality.app.entity.user.Room;
-import org.hospitality.app.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-public interface RoomRepository extends IRepository<Room, String> {
+@Repository
+public interface RoomRepository extends JpaRepository<Room, String> {
     Set<Room> getAll();
 }

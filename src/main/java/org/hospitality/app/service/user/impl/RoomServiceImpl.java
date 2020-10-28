@@ -8,49 +8,51 @@ package org.hospitality.app.service.user.impl;
 
 import org.hospitality.app.entity.user.Room;
 import org.hospitality.app.repository.user.RoomRepository;
-import org.hospitality.app.repository.user.impl.RoomRepositoryImpl;
 import org.hospitality.app.service.user.RoomService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class RoomServiceImpl implements RoomService {
-    private static RoomService service = null;
+    @Autowired
     private RoomRepository repository;
-
-    private RoomServiceImpl() {
-        this.repository = RoomRepositoryImpl.getRepository();
-    }
-
-    public static RoomService getService(){
-        if (service == null) service = new RoomServiceImpl();
-        return service;
-    }
 
     @Override
     public Set<Room> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public Room create(Room room) {
-        return this.repository.create(room);
+        return this.repository.save(room);
     }
 
     @Override
     public Room read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public Room update(Room room) {
-        return this.repository.update(room);
+        if (this.repository.existsById(room.getRoomNumber())) {
+            return this.repository.save(room);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if (this.repository.existsById(s))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     @Override

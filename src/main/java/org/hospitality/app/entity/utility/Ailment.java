@@ -1,8 +1,11 @@
 package org.hospitality.app.entity.utility;
 
-public class Ailment {
+import java.io.Serializable;
+
+public class Ailment implements Serializable {
     private String ailmentID,ailmentDesc;
     private Medicine medicine;
+    private Ailment(){}
 
     private Ailment(Builder builder){
         this.ailmentID=builder.ailmentID;

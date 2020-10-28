@@ -4,7 +4,6 @@ import org.hospitality.app.entity.utility.Delivery;
 import org.hospitality.app.entity.utility.Payment;
 import org.hospitality.app.factory.utility.PaymentFactory;
 import org.hospitality.app.repository.utility.PaymentRepository;
-import org.hospitality.app.repository.utility.impl.PaymentRepositoryImpl;
 import org.hospitality.app.service.utility.PaymentService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -17,7 +16,7 @@ import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PaymentServiceImplTest {
-    private static PaymentService service = PaymentServiceImpl.getService();
+    private static PaymentService service;
     private static Payment payment = PaymentFactory.createPayment("Cash", 1000.00, 500.00, 1500.00);
     private static Payment payment2 = PaymentFactory.createPayment("EFT", 1599.00, 1000.00, 2599.00);
 
