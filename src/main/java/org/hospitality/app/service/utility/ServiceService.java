@@ -10,6 +10,5 @@ public interface ServiceService extends IService<Service,String> {
     Set<Service> getAll();
 
     //business logic
-    Set<Service> getAllStartingWithL();
-
+    Set<Service> getNewService();
 }

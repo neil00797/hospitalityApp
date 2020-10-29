@@ -4,6 +4,7 @@ package org.hospitality.app.service.utility.impl;
     desc : ServiceService
  */
 
+
 import org.hospitality.app.entity.utility.Service;
 import org.hospitality.app.repository.utility.ServiceRepository;
 import org.hospitality.app.repository.utility.impl.ServiceRepositoryImpl;
@@ -12,6 +13,7 @@ import org.hospitality.app.service.utility.ServiceService;
 import java.util.HashSet;
 import java.util.Set;
 
+@org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {
     public static ServiceService service = null;
     private ServiceRepository repository;
@@ -48,16 +50,18 @@ public class ServiceServiceImpl implements ServiceService {
         return this.repository.delete(s);
     }
     @Override
-    public Set<Service> getAllStartingWithL() {
+    public Set<Service> getNewService() {
         Set<Service> services = getAll();
-        Set<Service> servicesStartingWithL = new HashSet<>();
+        Set<Service> servicesName = new HashSet<>();
 
         for (Service service: services){
-            if (service.getServiceType().trim().toUpperCase().startsWith("L")){
-                servicesStartingWithL.add(service);
+            if (service.getServiceType().equalsIgnoreCase("Laundry")){
+                servicesName.add(service);
             }
         }
-        return servicesStartingWithL;
+        return servicesName;
     }
 
 }
+
+

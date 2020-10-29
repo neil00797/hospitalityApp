@@ -4,13 +4,17 @@ package org.hospitality.app.entity.utility;
     desc : Service entity
  */
 
-public class Service {
+import java.io.Serializable;
+
+public class Service implements Serializable {
 
     private static String serviceId;
     private static String serviceType;
 
+    private Service(){}
 
-    private Service(Builder builder) {
+
+    public Service(Builder builder) {
         this.serviceId = builder.serviceId;
         this.serviceType = builder.serviceType;
 
