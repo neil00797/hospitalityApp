@@ -1,11 +1,24 @@
 package org.hospitality.app.entity.user;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Objects;
+
 /*
     author: @NeilJohnson
     desc: Factory Test for Occupant
     date: 29-06-2020
  */
+@Entity
 public class Room {
-    private String roomNumber, occupantId, availability;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String roomNumber;
+    private String occupantId, availability;
+
+    protected Room(){}
 
     private Room(Builder builder){
         this.roomNumber = builder.roomNumber;
@@ -62,5 +75,19 @@ public class Room {
         public Room build(){
             return new Room(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return roomNumber.equals(room.roomNumber) &&
+                occupantId.equals(room.occupantId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roomNumber, occupantId);
     }
 }

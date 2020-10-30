@@ -1,3 +1,4 @@
+/*
 package org.hospitality.app.repository.utility.impl;
 
 
@@ -7,7 +8,7 @@ import org.hospitality.app.repository.utility.StayInfoRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-
+@Deprecated
 public class StayInfoRepositoryImpl implements StayInfoRepository
 {
 
@@ -63,4 +64,4 @@ public class StayInfoRepositoryImpl implements StayInfoRepository
         return false;
     }
 }
-
+*/

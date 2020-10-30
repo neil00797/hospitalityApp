@@ -8,50 +8,51 @@ package org.hospitality.app.service.user.impl;
 
 import org.hospitality.app.entity.user.Occupant;
 import org.hospitality.app.repository.user.OccupantRepository;
-import org.hospitality.app.repository.user.impl.OccupantRepositoryImpl;
 import org.hospitality.app.service.user.OccupantService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class OccupantServiceImpl implements OccupantService {
-    private static OccupantService service = null;
+    @Autowired
     private OccupantRepository repository;
-
-    private OccupantServiceImpl() {
-        this.repository = OccupantRepositoryImpl.getRepository();
-    }
-
-    public static OccupantService getService(){
-        if (service == null) service = new OccupantServiceImpl();
-        return service;
-    }
 
     @Override
     public Set<Occupant> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public Occupant create(Occupant occupant) {
-        return this.repository.create(occupant);
+        return this.repository.save(occupant);
     }
 
     @Override
     public Occupant read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public Occupant update(Occupant occupant) {
-        return this.repository.update(occupant);
+        if (this.repository.existsById(occupant.getOccupantId())) {
+            return this.repository.save(occupant);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if (this.repository.existsById(s))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
@@ -79,4 +80,4 @@ public class OccupantServiceImpl implements OccupantService {
         }
         return occupantsByLastName;
     }
-    }
+}

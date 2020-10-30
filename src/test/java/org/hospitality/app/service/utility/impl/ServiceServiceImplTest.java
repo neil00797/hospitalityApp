@@ -51,8 +51,8 @@ public class ServiceServiceImplTest {
         System.out.println("Deleted successful");
     }
     @Test
-    public void e_getAllStartingWithL(){
-        Set<Service> serviceStartWithL = service.getAllStartingWithL();
-        System.out.println("Starts with L: " + serviceStartWithL);
+    public void e_getAll(){
+        Set<Service> servicess = service.getNewService();
+        System.out.println("All services: " + servicess);
     }
 }

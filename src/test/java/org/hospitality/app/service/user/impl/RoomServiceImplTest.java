@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class RoomServiceImplTest {
-    private static RoomService service = RoomServiceImpl.getService();
+    private static RoomService service;
     private static Room room = RoomFactory.createRoom("Unavailable", "");
     private static Room room2 = RoomFactory.createRoom("Available", "5464498");
 
