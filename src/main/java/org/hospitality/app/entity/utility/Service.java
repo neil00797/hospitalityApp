@@ -4,14 +4,21 @@ package org.hospitality.app.entity.utility;
     desc : Service entity
  */
 
-import java.io.Serializable;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
 public class Service implements Serializable {
 
+    @Id
     private static String serviceId;
     private static String serviceType;
 
-    private Service(){}
+    protected Service(){}
 
 
     public Service(Builder builder) {
@@ -64,7 +71,7 @@ public class Service implements Serializable {
 
         }
 
-        public Builder setserviceType(String serviceType) {
+        public Builder setServiceType(String serviceType) {
 
             this.serviceType = serviceType;
             return this;
@@ -74,12 +81,20 @@ public class Service implements Serializable {
         public Service build() {
 
             return new Service(this);
-
         }
-
-
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Service.Builder builder = (Service.Builder) o;
+        return serviceId().equals(builder.serviceId);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(serviceId());
+    }
 
 }
 

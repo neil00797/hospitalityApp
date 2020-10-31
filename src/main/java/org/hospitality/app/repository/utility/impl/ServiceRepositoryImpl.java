@@ -1,8 +1,10 @@
+/*
 package org.hospitality.app.repository.utility.impl;
+ */
 /*
     author: @Moliehi Mabilietse
     desc : ServiceRepository
- */
+ *//*
 
 
 import org.hospitality.app.entity.utility.Service;
@@ -12,6 +14,7 @@ import org.hospitality.app.repository.utility.ServiceRepository;
 import java.util.HashSet;
 import java.util.Set;
 
+@Deprecated
 public class ServiceRepositoryImpl implements ServiceRepository{
     private static ServiceRepository repository = null;
     private Set<Service> serviceDB;
@@ -66,6 +69,6 @@ public class ServiceRepositoryImpl implements ServiceRepository{
         return false;
     }
 }
-
+*/
 
 

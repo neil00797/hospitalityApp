@@ -7,47 +7,50 @@ package org.hospitality.app.service.utility.impl;
 
 import org.hospitality.app.entity.utility.Service;
 import org.hospitality.app.repository.utility.ServiceRepository;
-import org.hospitality.app.repository.utility.impl.ServiceRepositoryImpl;
 import org.hospitality.app.service.utility.ServiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {
-    public static ServiceService service = null;
+
+
+    @Autowired
     private ServiceRepository repository;
 
-    private ServiceServiceImpl(){
-        this.repository = ServiceRepositoryImpl.getRepository();
-    }
-    public static ServiceService getService(){
-        if(service == null) service = new ServiceServiceImpl();
-        return service;
-    }
     @Override
     public Set<Service> getAll(){
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public Service create(Service service) {
-        return this.repository.create(service);
+        return this.repository.save(service);
     }
 
     @Override
     public Service read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public Service update(Service service) {
-        return this.repository.update(service);
+        if (this.repository.existsById(service.getServiceId())) {
+            return this.repository.save(service);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if(this.repository.existsById(s))
+            return false;
+
+        else return true;
     }
     @Override
     public Set<Service> getNewService() {

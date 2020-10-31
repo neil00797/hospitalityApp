@@ -1,8 +1,9 @@
+/*
 package org.hospitality.app.repository.utility;
 /*
     author: @Moliehi Mabilietse
     desc: Service tests for create, read, update and deleting
- */
+  *//*
 
 import org.hospitality.app.entity.utility.Service;
 import org.hospitality.app.factory.utility.ServiceFactory;
@@ -12,11 +13,14 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ServiceRepositoryImplTest {
-    private static ServiceRepository repository = ServiceRepositoryImpl.getRepository();
+
+    @Autowired
+    private static ServiceRepository repository;
     private static Service service = ServiceFactory.createService("Laundry");
 
 
@@ -51,6 +55,6 @@ public class ServiceRepositoryImplTest {
     }
 
 }
-
+*/
 
 
