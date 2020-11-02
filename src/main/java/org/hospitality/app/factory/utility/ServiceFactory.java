@@ -15,7 +15,7 @@ public class ServiceFactory {
 
         Service service = new Service.Builder()
                 .setserviceId(serviceId)
-                .setserviceType(serviceType)
+                .setServiceType(serviceType)
                 .build();
 
         return service;

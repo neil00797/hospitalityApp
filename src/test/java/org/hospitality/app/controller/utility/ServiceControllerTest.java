@@ -50,7 +50,7 @@ class ServiceControllerTest {
 
     @Test
     void c_update() {
-        Service updated = new Service.Builder().copy(service).setserviceType("Service").build();
+        Service updated = new Service.Builder().copy(service).setServiceType("Service").build();
         String url = baseUrl + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + updated);
