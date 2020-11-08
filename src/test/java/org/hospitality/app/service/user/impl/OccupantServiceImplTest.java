@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OccupantServiceImplTest {
-    private static OccupantService service = OccupantServiceImpl.getService();
+    private static OccupantService service;
     private static Occupant occupant = OccupantFactory.createOccupant("Nail", "Jonson");
     private static Occupant occupant2 = OccupantFactory.createOccupant("Jak", "Swager");
 

@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -18,7 +19,9 @@ import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ServiceServiceImplTest {
-    private static ServiceService service = ServiceServiceImpl.getService();
+
+    @Autowired
+    private static ServiceService service;
     private static Service ser = ServiceFactory.createService("Laundry");
 
     @Test
@@ -40,7 +43,7 @@ public class ServiceServiceImplTest {
     }
     @Test
     public void c_update(){
-        Service updated = new Service.Builder().copy(ser).setserviceId("6789").setserviceType("Laundry").build();
+        Service updated = new Service.Builder().copy(ser).setserviceId("6789").setServiceType("Laundry").build();
         updated = service.update(updated);
         System.out.println("Updated: " + updated);
     }
@@ -51,8 +54,8 @@ public class ServiceServiceImplTest {
         System.out.println("Deleted successful");
     }
     @Test
-    public void e_getAllStartingWithL(){
-        Set<Service> serviceStartWithL = service.getAllStartingWithL();
-        System.out.println("Starts with L: " + serviceStartWithL);
+    public void e_getAll(){
+        Set<Service> servicess = service.getNewService();
+        System.out.println("All services: " + servicess);
     }
 }
