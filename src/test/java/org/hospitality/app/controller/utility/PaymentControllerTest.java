@@ -36,12 +36,16 @@ public class PaymentControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseUrl = "http://localhost:8080/payment/";
+    private String baseUrl = "http://localhost:8080/hospitality_db/payment/";
+    private static String SECURITY_USERNAME = "root";
+    private static String SECURITY_PASSWORD = "password";
 
     @Test
     public void a_create() {
         String url = baseUrl + "create";
-        ResponseEntity<Payment> postResponse = restTemplate.postForEntity(url, payment, Payment.class);
+        ResponseEntity<Payment> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, payment, Payment.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println(postResponse);
@@ -52,7 +56,10 @@ public class PaymentControllerTest {
     public void b_read() {
         String url = baseUrl + "read/" + payment.getReceiptNumber();
         System.out.println("URL: " + url);
-        ResponseEntity<Payment> response = restTemplate.getForEntity(url, Payment.class);
+        ResponseEntity<Payment> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .getForEntity(url, Payment.class);
+        assertEquals(payment.getReceiptNumber(), response.getBody().getReceiptNumber());
 
     }
 
@@ -62,7 +69,10 @@ public class PaymentControllerTest {
         String url = baseUrl + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Payment> response = restTemplate.postForEntity(url, updated, Payment.class);
+        ResponseEntity<Payment> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, updated, Payment.class);
+        assertEquals(payment.getReceiptNumber(), response.getBody().getReceiptNumber());
 
     }
 
@@ -78,7 +88,9 @@ public class PaymentControllerTest {
         String url = baseUrl + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>("null", headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }

@@ -33,12 +33,16 @@ public class DeliveryControllerTest {
     private static Delivery delivery = DeliveryFactory.createDelivery("0001","Laundry");
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseUrl = "http://localhost:8080/delivery/";
+    private String baseUrl = "http://localhost:8080/hospitality_db/delivery/";
+    private static String SECURITY_USERNAME = "root";
+    private static String SECURITY_PASSWORD = "password";
 
     @Test
     public void a_create() {
         String url = baseUrl + "create";
-        ResponseEntity<Delivery> postResponse = restTemplate.postForEntity(url, delivery, Delivery.class);
+        ResponseEntity<Delivery> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, delivery, Delivery.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
 
@@ -50,7 +54,10 @@ public class DeliveryControllerTest {
     public void b_read() {
         String url = baseUrl + "read/" + delivery.getDeliveryNumber();
         System.out.println("URL: " + url);
-        ResponseEntity<Delivery> response = restTemplate.getForEntity(url, Delivery.class);
+        ResponseEntity<Delivery> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, Delivery.class);
+        assertEquals(delivery.getDeliveryNumber(), response.getBody().getDeliveryNumber());
 
 
     }
@@ -61,7 +68,10 @@ public class DeliveryControllerTest {
         String url = baseUrl + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Delivery> response = restTemplate.postForEntity(url, updated, Delivery.class);
+        ResponseEntity<Delivery> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, updated, Delivery.class);
+        assertEquals(delivery.getDeliveryNumber(), response.getBody().getDeliveryNumber());
 
     }
 
@@ -77,7 +87,9 @@ public class DeliveryControllerTest {
         String url = baseUrl + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>("null", headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }

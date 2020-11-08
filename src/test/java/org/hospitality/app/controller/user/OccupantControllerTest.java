@@ -27,12 +27,16 @@ public class OccupantControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseUrl = "http://localhost:8080/occupant/";
+    private String baseUrl = "http://localhost:8080/hospitality_db/occupant/";
+    private static String SECURITY_USERNAME = "root";
+    private static String SECURITY_PASSWORD = "password";
 
     @Test
     public void a_create() {
         String url = baseUrl + "create";
-        ResponseEntity<Occupant> postResponse = restTemplate.postForEntity(url, occupant, Occupant.class);
+        ResponseEntity<Occupant> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, occupant, Occupant.class);
 
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
@@ -47,9 +51,10 @@ public class OccupantControllerTest {
     public void b_read() {
         String url = baseUrl + "read/" + occupant.getOccupantId();
         System.out.println("URL: " + url);
-        ResponseEntity<Occupant> response = restTemplate.getForEntity(url, Occupant.class);
-
-
+        ResponseEntity<Occupant> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, Occupant.class);
+        assertEquals(occupant.getOccupantId(), response.getBody().getOccupantId());
     }
 
     @Test
@@ -58,8 +63,10 @@ public class OccupantControllerTest {
         String url = baseUrl + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Occupant> response = restTemplate.postForEntity(url, updated, Occupant.class);
-
+        ResponseEntity<Occupant> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, updated, Occupant.class);
+        assertEquals(occupant.getOccupantId(), response.getBody().getOccupantId());
     }
 
     @Test
@@ -74,7 +81,9 @@ public class OccupantControllerTest {
         String url = baseUrl + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>("null", headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
