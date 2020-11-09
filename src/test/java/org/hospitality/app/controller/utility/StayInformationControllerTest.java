@@ -13,10 +13,7 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +27,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StayInformationControllerTest
 {
     StayInformation stayInformation = StayInformationFactory.createStayInformation( "4 days");
+    private static String SECURITY_USERNAME = "root";
+    private static String SECURITY_PASSWORD = "password";
+
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -40,12 +40,15 @@ public class StayInformationControllerTest
     {
 
         String url = baseURL + "create";
-        ResponseEntity<StayInformation> postResponse = restTemplate.postForEntity(url , stayInformation, StayInformation.class);
+        ResponseEntity<StayInformation> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .postForEntity(url , stayInformation, StayInformation.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
 
         System.out.println(postResponse);
         System.out.println(postResponse.getBody());
+        assertEquals(HttpStatus.FORBIDDEN , postResponse.getStatusCode());
     }
 
     @Test
@@ -86,7 +89,9 @@ public class StayInformationControllerTest
         String url = baseURL + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>("null", headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity , String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity , String.class);
         System.out.println(response);
         System.out.println(response.getBody());
 
