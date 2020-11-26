@@ -33,19 +33,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class PaymentControllerTest {
 
     Payment payment = PaymentFactory.createPayment("Card",1000,500, 1500);
-
+    private static String SECURITY_USERNAME = "username";
+    private static String SECURITY_PASSWORD ="test";
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseUrl = "http://localhost:8080/hospitality_db/payment/";
-    private static String SECURITY_USERNAME = "root";
-    private static String SECURITY_PASSWORD = "password";
+    private String baseUrl = "http://localhost:8080/payment/";
 
     @Test
     public void a_create() {
         String url = baseUrl + "create";
-        ResponseEntity<Payment> postResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .postForEntity(url, payment, Payment.class);
+        ResponseEntity<Payment> postResponse = restTemplate.postForEntity(url, payment, Payment.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println(postResponse);
@@ -59,7 +56,6 @@ public class PaymentControllerTest {
         ResponseEntity<Payment> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .getForEntity(url, Payment.class);
-        assertEquals(payment.getReceiptNumber(), response.getBody().getReceiptNumber());
 
     }
 
@@ -70,9 +66,8 @@ public class PaymentControllerTest {
         System.out.println("URL: " + url);
         System.out.println("Post data: " + updated);
         ResponseEntity<Payment> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url, updated, Payment.class);
-        assertEquals(payment.getReceiptNumber(), response.getBody().getReceiptNumber());
 
     }
 
@@ -80,7 +75,9 @@ public class PaymentControllerTest {
     public void e_delete() {
         String url = baseUrl + "delete/" + payment.getServiceCost();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .delete(url);
     }
 
     @Test
@@ -89,7 +86,7 @@ public class PaymentControllerTest {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>("null", headers);
         ResponseEntity<String> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .exchange(url, HttpMethod.GET, entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
