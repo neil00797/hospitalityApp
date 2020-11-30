@@ -4,15 +4,14 @@ package org.hospitality.app.factory.utility;
     desc : Service entity
  */
 
-import org.hospitality.app.entity.utility.Service;
-import org.hospitality.app.factory.utility.ServiceFactory;
+import org.hospitality.app.entity.utility.Facility;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ServiceFactoryTest {
+public class FacilityFactoryTest {
     @Test
     public void createService(){
-        Service service = ServiceFactory.createService("Laundry");
+        Facility service = FacilityFactory.createService("Laundry");
         Assert.assertEquals(service,service);
     }
 

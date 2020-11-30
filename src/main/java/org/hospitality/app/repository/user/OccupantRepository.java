@@ -12,5 +12,5 @@ import java.util.Set;
 
 @Repository
 public interface OccupantRepository extends JpaRepository<Occupant, String> {
-    Set<Occupant> getAll();
+    //Set<Occupant> getAll();
 }

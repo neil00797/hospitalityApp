@@ -1,8 +1,8 @@
 package org.hospitality.app.controller.utility;
 
 
-import org.hospitality.app.entity.utility.Service;
-import org.hospitality.app.factory.utility.ServiceFactory;
+import org.hospitality.app.entity.utility.Facility;
+import org.hospitality.app.factory.utility.FacilityFactory;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -22,9 +22,9 @@ import static org.junit.runners.MethodSorters.NAME_ASCENDING;
 @RunWith(SpringRunner.class)
 @FixMethodOrder(NAME_ASCENDING)
 
-class ServiceControllerTest {
+class FacilityControllerTest {
 
-    private static Service service = ServiceFactory.createService("Laundry");
+    private static Facility service = FacilityFactory.createService("Laundry");
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -33,7 +33,7 @@ class ServiceControllerTest {
     @Test
     void a_create() {
         String url = baseUrl + "create";
-        ResponseEntity<Service> postResponse = restTemplate.postForEntity(url, service, Service.class);
+        ResponseEntity<Facility> postResponse = restTemplate.postForEntity(url, service, Facility.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
 
@@ -45,16 +45,16 @@ class ServiceControllerTest {
     void b_read() {
         String url = baseUrl + "read/" + service.getServiceType();
         System.out.println("URL: " + url);
-        ResponseEntity<Service> response = restTemplate.getForEntity(url, Service.class);
+        ResponseEntity<Facility> response = restTemplate.getForEntity(url, Facility.class);
     }
 
     @Test
     void c_update() {
-        Service updated = new Service.Builder().copy(service).setServiceType("Service").build();
+        Facility updated = new Facility.Builder().copy(service).setServiceType("Service").build();
         String url = baseUrl + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Service> response = restTemplate.postForEntity(url, updated, Service.class);
+        ResponseEntity<Facility> response = restTemplate.postForEntity(url, updated, Facility.class);
     }
 
     @Test

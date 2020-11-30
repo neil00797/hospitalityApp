@@ -4,14 +4,17 @@ import org.hospitality.app.entity.utility.Delivery;
 import org.hospitality.app.entity.utility.Payment;
 import org.hospitality.app.repository.utility.PaymentRepository;
 import org.hospitality.app.service.utility.PaymentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class PaymentServiceImpl implements PaymentService {
-    private static PaymentService service = null;
+    @Autowired
     private PaymentRepository repository;
 
     /*private PaymentServiceImpl(){
@@ -27,7 +30,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public Set<Payment> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override

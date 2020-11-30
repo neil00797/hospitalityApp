@@ -3,10 +3,9 @@ package org.hospitality.app.service.utility.impl;
     author: @Moliehi Mabilietse
     desc: Service test
  */
-import org.hospitality.app.entity.utility.Service;
-import org.hospitality.app.factory.utility.ServiceFactory;
-import org.hospitality.app.service.utility.ServiceService;
-import org.hospitality.app.service.utility.impl.ServiceServiceImpl;
+import org.hospitality.app.entity.utility.Facility;
+import org.hospitality.app.factory.utility.FacilityFactory;
+import org.hospitality.app.service.utility.FacilityService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -18,44 +17,44 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ServiceServiceImplTest {
+public class FacilityServiceImplTest {
 
     @Autowired
-    private static ServiceService service;
-    private static Service ser = ServiceFactory.createService("Laundry");
+    private static FacilityService service;
+    private static Facility facility = FacilityFactory.createService("Laundry");
 
     @Test
     public void d_getAll(){
-        Set<Service> services = service.getAll();
+        Set<Facility> services = service.getAll();
         assertEquals(1,services.size());
         System.out.println("Services: " + services);
     }
     @Test
     public void a_create(){
-        Service created = service.create(ser);
-        Assert.assertEquals(ser.getServiceId(),created.getServiceId());
+        Facility created = service.create(facility);
+        Assert.assertEquals(facility.getServiceId(),created.getServiceId());
         System.out.println("Created: " + created);
     }
     @Test
     public void b_read(){
-        Service read = service.read(ser.getServiceId());
+        Facility read = service.read(facility.getServiceId());
         System.out.println("Read: " + read);
     }
     @Test
     public void c_update(){
-        Service updated = new Service.Builder().copy(ser).setserviceId("6789").setServiceType("Laundry").build();
+        Facility updated = new Facility.Builder().copy(facility).setServiceId("6789").setServiceType("Laundry").build();
         updated = service.update(updated);
         System.out.println("Updated: " + updated);
     }
     @Test
     public void f_delete(){
-        boolean deleted = service.delete(ser.getServiceId());
+        boolean deleted = service.delete(facility.getServiceId());
         Assert.assertTrue(deleted);
         System.out.println("Deleted successful");
     }
     @Test
     public void e_getAll(){
-        Set<Service> servicess = service.getNewService();
+        Set<Facility> servicess = service.getNewService();
         System.out.println("All services: " + servicess);
     }
 }
